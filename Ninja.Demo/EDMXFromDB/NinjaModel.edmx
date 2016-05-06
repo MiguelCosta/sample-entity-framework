@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="NinjaDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Clan">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClanName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Ninja">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClanId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="ServedInOniwaban" Type="bit" Nullable="false" />
+          <Property Name="DateOfBirth" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NinjaEquipment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="NinjaId" Type="int" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Ninja_Clan_ClanId">
+          <End Role="Clan" Type="Self.Clan" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Ninja" Type="Self.Ninja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clan">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ninja">
+              <PropertyRef Name="ClanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NinjaEquipment_Ninja_NinjaId">
+          <End Role="Ninja" Type="Self.Ninja" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="NinjaEquipment" Type="Self.NinjaEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ninja">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NinjaEquipment">
+              <PropertyRef Name="NinjaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="NinjaDBModelStoreContainer">
+          <EntitySet Name="Clan" EntityType="Self.Clan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ninja" EntityType="Self.Ninja" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NinjaEquipment" EntityType="Self.NinjaEquipment" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Ninja_Clan_ClanId" Association="Self.FK_Ninja_Clan_ClanId">
+            <End Role="Clan" EntitySet="Clan" />
+            <End Role="Ninja" EntitySet="Ninja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NinjaEquipment_Ninja_NinjaId" Association="Self.FK_NinjaEquipment_Ninja_NinjaId">
+            <End Role="Ninja" EntitySet="Ninja" />
+            <End Role="NinjaEquipment" EntitySet="NinjaEquipment" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NinjaDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Clan">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClanName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Ninja" Relationship="Self.FK_Ninja_Clan_ClanId" FromRole="Clan" ToRole="Ninja" />
+        </EntityType>
+        <EntityType Name="Ninja">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClanId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ServedInOniwaban" Type="Boolean" Nullable="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="7" />
+          <NavigationProperty Name="Clan" Relationship="Self.FK_Ninja_Clan_ClanId" FromRole="Ninja" ToRole="Clan" />
+          <NavigationProperty Name="NinjaEquipment" Relationship="Self.FK_NinjaEquipment_Ninja_NinjaId" FromRole="Ninja" ToRole="NinjaEquipment" />
+        </EntityType>
+        <EntityType Name="NinjaEquipment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NinjaId" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Ninja" Relationship="Self.FK_NinjaEquipment_Ninja_NinjaId" FromRole="NinjaEquipment" ToRole="Ninja" />
+        </EntityType>
+        <Association Name="FK_Ninja_Clan_ClanId">
+          <End Role="Clan" Type="Self.Clan" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Ninja" Type="Self.Ninja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clan">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ninja">
+              <PropertyRef Name="ClanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NinjaEquipment_Ninja_NinjaId">
+          <End Role="Ninja" Type="Self.Ninja" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="NinjaEquipment" Type="Self.NinjaEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ninja">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NinjaEquipment">
+              <PropertyRef Name="NinjaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="NinjaDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Clan" EntityType="Self.Clan" />
+          <EntitySet Name="Ninja" EntityType="Self.Ninja" />
+          <EntitySet Name="NinjaEquipment" EntityType="Self.NinjaEquipment" />
+          <AssociationSet Name="FK_Ninja_Clan_ClanId" Association="Self.FK_Ninja_Clan_ClanId">
+            <End Role="Clan" EntitySet="Clan" />
+            <End Role="Ninja" EntitySet="Ninja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NinjaEquipment_Ninja_NinjaId" Association="Self.FK_NinjaEquipment_Ninja_NinjaId">
+            <End Role="Ninja" EntitySet="Ninja" />
+            <End Role="NinjaEquipment" EntitySet="NinjaEquipment" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NinjaDBModelStoreContainer" CdmEntityContainer="NinjaDBEntities">
+          <EntitySetMapping Name="Clan">
+            <EntityTypeMapping TypeName="NinjaDBModel.Clan">
+              <MappingFragment StoreEntitySet="Clan">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ClanName" ColumnName="ClanName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ninja">
+            <EntityTypeMapping TypeName="NinjaDBModel.Ninja">
+              <MappingFragment StoreEntitySet="Ninja">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ClanId" ColumnName="ClanId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ServedInOniwaban" ColumnName="ServedInOniwaban" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NinjaEquipment">
+            <EntityTypeMapping TypeName="NinjaDBModel.NinjaEquipment">
+              <MappingFragment StoreEntitySet="NinjaEquipment">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NinjaId" ColumnName="NinjaId" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
