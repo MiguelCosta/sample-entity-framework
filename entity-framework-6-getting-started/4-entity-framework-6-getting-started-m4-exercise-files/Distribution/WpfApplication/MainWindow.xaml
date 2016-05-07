@@ -5,7 +5,8 @@
          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:System="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:WpfApplication"
-        xmlns:Classes="clr-namespace:NinjaDomain.Classes;assembly=NinjaDomain.Classes" x:Class="WpfApplication.MainWindow"
+        xmlns:Classes="clr-namespace:NinjaDomain.Classes;assembly=NinjaDomain.Classes" 
+        x:Class="WpfApplication.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="522" Width="743" Loaded="Window_Loaded">
 
@@ -75,7 +76,7 @@
         <DataGrid x:Name="equipmentOwnedDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" 
                   ItemsSource="{Binding}" Margin="388,246,21,52.667" 
                   RowDetailsVisibilityMode="VisibleWhenSelected" 
-                  CellEditEnding="equipmentOwnedDataGrid_CellEditEnding" >
+                  CellEditEnding="equipmentOwnedDataGrid_CellEditEnding">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="idColumn" Binding="{Binding Id}" Header="Id" Width="SizeToHeader" Visibility="Hidden" />
                 <DataGridTextColumn x:Name="nameColumn" Binding="{Binding Name}" Header="Name" Width="6*" />

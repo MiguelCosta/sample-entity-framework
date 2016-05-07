@@ -21,6 +21,7 @@ namespace NinjaDomain.DataModel
 
         public IEnumerable GetClanList()
         {
+            // AsNoTracking
             using(var context = new NinjaContext())
             {
                 return context.Clans.AsNoTracking().OrderBy(c => c.ClanName)
