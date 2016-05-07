@@ -3,20 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B7B6A63A-E7FF-46E3-887F-5B9FDD128A70}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ninja.DomainClasses", "Ninja.DomainClasses\Ninja.DomainClasses.csproj", "{B0CE1026-5F2A-4B29-92FF-AA6C8FB417BD}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{664C0690-2E61-480E-9E5D-C0AEB9EBF2F9}"
-	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NinjaDomain.DataModel", "NinjaDomain.DataModel\NinjaDomain.DataModel.csproj", "{C8528980-CA97-4768-B01C-1583106C0989}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "NinjaDomain.Classes", "src\NinjaDomain.Classes\NinjaDomain.Classes.xproj", "{D1B26D58-3BFD-46F7-9920-9191ED396707}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EdmxFromDb", "EdmxFromDb\EdmxFromDb.csproj", "{24ED7B88-4C1B-4E19-94F6-42966816F39A}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "NinjaDomain.DataModel", "src\NinjaDomain.DataModel\NinjaDomain.DataModel.xproj", "{ED2C7B63-2401-4C14-BEB0-9B26963430EB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDMXFromDB", "EDMXFromDB\EDMXFromDB.csproj", "{9A1687F9-4BED-4112-B9FE-5F4A8904BCBB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeModelFromDB", "CodeModelFromDB\CodeModelFromDB.csproj", "{36FDC0F1-3017-4C53-97D3-7CF527AF3678}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeModelFromDB", "CodeModelFromDB\CodeModelFromDB.csproj", "{54D14882-464A-4EC9-AD45-C0C7E8184A08}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,28 +17,24 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D1B26D58-3BFD-46F7-9920-9191ED396707}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D1B26D58-3BFD-46F7-9920-9191ED396707}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D1B26D58-3BFD-46F7-9920-9191ED396707}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D1B26D58-3BFD-46F7-9920-9191ED396707}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ED2C7B63-2401-4C14-BEB0-9B26963430EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ED2C7B63-2401-4C14-BEB0-9B26963430EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ED2C7B63-2401-4C14-BEB0-9B26963430EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ED2C7B63-2401-4C14-BEB0-9B26963430EB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9A1687F9-4BED-4112-B9FE-5F4A8904BCBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9A1687F9-4BED-4112-B9FE-5F4A8904BCBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9A1687F9-4BED-4112-B9FE-5F4A8904BCBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9A1687F9-4BED-4112-B9FE-5F4A8904BCBB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{36FDC0F1-3017-4C53-97D3-7CF527AF3678}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{36FDC0F1-3017-4C53-97D3-7CF527AF3678}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{36FDC0F1-3017-4C53-97D3-7CF527AF3678}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{36FDC0F1-3017-4C53-97D3-7CF527AF3678}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0CE1026-5F2A-4B29-92FF-AA6C8FB417BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0CE1026-5F2A-4B29-92FF-AA6C8FB417BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0CE1026-5F2A-4B29-92FF-AA6C8FB417BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0CE1026-5F2A-4B29-92FF-AA6C8FB417BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8528980-CA97-4768-B01C-1583106C0989}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8528980-CA97-4768-B01C-1583106C0989}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8528980-CA97-4768-B01C-1583106C0989}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8528980-CA97-4768-B01C-1583106C0989}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24ED7B88-4C1B-4E19-94F6-42966816F39A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24ED7B88-4C1B-4E19-94F6-42966816F39A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24ED7B88-4C1B-4E19-94F6-42966816F39A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24ED7B88-4C1B-4E19-94F6-42966816F39A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54D14882-464A-4EC9-AD45-C0C7E8184A08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54D14882-464A-4EC9-AD45-C0C7E8184A08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54D14882-464A-4EC9-AD45-C0C7E8184A08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54D14882-464A-4EC9-AD45-C0C7E8184A08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{D1B26D58-3BFD-46F7-9920-9191ED396707} = {B7B6A63A-E7FF-46E3-887F-5B9FDD128A70}
-		{ED2C7B63-2401-4C14-BEB0-9B26963430EB} = {B7B6A63A-E7FF-46E3-887F-5B9FDD128A70}
 	EndGlobalSection
 EndGlobal

@@ -4,28 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9A1687F9-4BED-4112-B9FE-5F4A8904BCBB}</ProjectGuid>
+    <ProjectGuid>{24ED7B88-4C1B-4E19-94F6-42966816F39A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EDMXFromDB</RootNamespace>
-    <AssemblyName>EDMXFromDB</AssemblyName>
+    <RootNamespace>EdmxFromDb</RootNamespace>
+    <AssemblyName>EdmxFromDb</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -66,73 +51,76 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clan.cs">
-      <DependentUpon>NinjaModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Ninja.cs">
-      <DependentUpon>NinjaModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="NinjaEquipment.cs">
-      <DependentUpon>NinjaModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="NinjaModel.Context.cs">
+    <Compile Include="AWModel.Context.cs" />
+    <Compile Include="AWModel.Context1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>NinjaModel.Context.tt</DependentUpon>
+      <DependentUpon>AWModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="NinjaModel.cs">
+    <Compile Include="AWModel.cs" />
+    <Compile Include="AWModel.Designer.cs">
+      <DependentUpon>AWModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AWModel1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>NinjaModel.tt</DependentUpon>
+      <DependentUpon>AWModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="NinjaModel.Designer.cs">
+    <Compile Include="AWModel1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>NinjaModel.edmx</DependentUpon>
+      <DependentUpon>AWModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Product.cs">
+      <DependentUpon>AWModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductCategory.cs">
+      <DependentUpon>AWModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductDescription.cs">
+      <DependentUpon>AWModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductModel.cs">
+      <DependentUpon>AWModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductModelProductDescription.cs">
+      <DependentUpon>AWModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="NinjaDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="NinjaDB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>NinjaDB.mdf</DependentUpon>
-    </Content>
-    <Content Include="NinjaModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>NinjaModel.edmx</DependentUpon>
-      <LastGenOutput>NinjaModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="NinjaModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>NinjaModel.edmx</DependentUpon>
-      <LastGenOutput>NinjaModel.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="NinjaModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>NinjaModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
+    <Compile Include="vGetAllCategory.cs">
+      <DependentUpon>AWModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vProductAndDescription.cs">
+      <DependentUpon>AWModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vProductModelCatalogDescription.cs">
+      <DependentUpon>AWModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <None Include="NinjaModel.edmx.diagram">
-      <DependentUpon>NinjaModel.edmx</DependentUpon>
+    <EntityDeploy Include="AWModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AWModel1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="AWModel.edmx.diagram">
+      <DependentUpon>AWModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="AWModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>AWModel.Context1.cs</LastGenOutput>
+    </Content>
+    <Content Include="AWModel.edmx.sql" />
+    <Content Include="AWModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>AWModel1.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
