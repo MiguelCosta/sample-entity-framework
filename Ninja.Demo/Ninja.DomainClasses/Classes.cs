@@ -10,7 +10,7 @@ namespace NinjaDomain.Classes
 
         public int Id { get; set; }
 
-        public List<Ninja> Ninjas { get; set; }
+        public List<Ninja> Ninjas { get; set; } = new List<Ninja>();
     }
 
     public class Ninja
@@ -21,7 +21,7 @@ namespace NinjaDomain.Classes
 
         public DateTime DayOfBirth { get; set; }
 
-        public List<NinjaEquipment> EquipmentOwned { get; set; }
+        public List<NinjaEquipment> EquipmentOwned { get; set; } = new List<NinjaEquipment>();
 
         public int Id { get; set; }
 

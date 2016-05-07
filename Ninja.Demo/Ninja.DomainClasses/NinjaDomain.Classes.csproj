@@ -7,8 +7,8 @@
     <ProjectGuid>{B0CE1026-5F2A-4B29-92FF-AA6C8FB417BD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ninja.DomainClasses</RootNamespace>
-    <AssemblyName>Ninja.DomainClasses</AssemblyName>
+    <RootNamespace>NinjaDomain.Classes</RootNamespace>
+    <AssemblyName>NinjaDomain.Classes</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
